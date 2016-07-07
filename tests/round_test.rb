@@ -5,7 +5,6 @@ require './lib/guess'
 require './lib/cards'
 require './lib/deck'
 require './lib/round'
-require 'pry'
 
 class DeckTest < Minitest::Test
   def test_it_has_a_deck
