@@ -35,23 +35,19 @@ class DeckTest < Minitest::Test
     card_1 = Card.new("What is the capital of Alaska?", "Juneau")
     card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
     deck = Deck.new([card_1, card_2])
-    binding.pry
     round = Round.new(deck)
     assert_equal card_1, round.current_card
 
-    # round.record_guess("Juneau", card_1)
-    # assert_equal 1, round.guesses.count
-    # assert_equal "Correct!", round.guesses.first.feedback
-    # assert_equal 1, round.number_correct
+    round.record_guess("Juneau", card_1)
+    assert_equal 1, round.guesses.count
+    assert_equal "Correct!", round.guesses.first.feedback
+    assert_equal 1, round.number_correct
     # assert_equal card_2, round.current_card
-
   end
 end
 
-# round.guesses.first.feedback
-# => "Correct!"
-# round.number_correct
-# => 1
+
+
 # round.current_card
 # => #<Card:0x007ffdf1820a90 @answer="93,000,000", @question="Approximately how many miles are in one astronomical unit?">
 # round.record_guess("2")

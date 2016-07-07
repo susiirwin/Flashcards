@@ -1,5 +1,5 @@
 class Guess
-  attr_reader :response, :card
+  attr_reader :response, :card, :feedback
   def initialize(response, card)
     @response = response
     @card = card
