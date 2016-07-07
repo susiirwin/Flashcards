@@ -1,3 +1,4 @@
+require "pry"
 class Round
   attr_reader :deck, :guesses, :guess, :round_count, :round_guesses
   def initialize(deck)
@@ -14,7 +15,7 @@ class Round
 
   def record_guess(response, card)
     @guesses << Guess.new(response, card)
-    @round_count =+ 1
+    @round_count += 1
   end
 
   def number_correct
@@ -26,6 +27,38 @@ class Round
 
   def percent_correct
     number_correct.to_f / deck.count * 100
+  end
+
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-------------------------------------------------"
+
+    puts "This card number #{@round_count + 1} out of #{deck.count}."
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses[0].feedback
+
+    puts "This card number #{@round_count + 1} out of #{deck.count}."
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses[1].feedback
+
+    puts "This card number #{@round_count + 1} out of #{deck.count}."
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses[2].feedback
+
+    puts "This card number #{@round_count + 1} out of #{deck.count}."
+    puts "Question: #{current_card.question}"
+    guess = gets.chomp
+    record_guess(guess, current_card)
+    puts @guesses[3].feedback
+
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} out of #{deck.count} for a score of #{percent_correct.to_i}%"
   end
 
 end

@@ -1,3 +1,4 @@
+require_relative 'cards'
 class Guess
   attr_reader :response, :card, :feedback
   def initialize(response, card)
@@ -6,11 +7,7 @@ class Guess
   end
 
   def correct?
-    if @response == card.answer
-      return true
-    else
-      return false
-    end
+    response == card.answer
   end
 
   def feedback
