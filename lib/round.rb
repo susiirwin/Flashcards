@@ -5,8 +5,7 @@ class Round
     @guess = []
     @guesses = []
     @round_count = 0
-    # @round_correct_guesses = 0
-    # @round_guesses = 0
+    @number_correct = number_correct
   end
 
   def current_card
@@ -23,6 +22,10 @@ class Round
       guess.correct?
     end
     number_correct.count
+  end
+
+  def percent_correct
+    number_correct.to_f / deck.count * 100
   end
 
 end
