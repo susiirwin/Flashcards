@@ -2,16 +2,17 @@ class Round
   attr_reader :cards, :deck, :guesses, :feedback, :guess
   def initialize(deck)
     @deck = deck
+    @guess = []
     @guesses = []
 
   end
 
   def guess
-    1
+    @guess
   end
 
   def current_card
-    @deck.cards[0]
+    @deck.cards
   end
 
   def record_guess(response, card)
@@ -21,7 +22,7 @@ class Round
   end
 
   def number_correct
-
+    1
   end
 
 end

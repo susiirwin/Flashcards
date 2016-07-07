@@ -42,6 +42,7 @@ class DeckTest < Minitest::Test
     assert_equal "Correct!", round.guesses.first.feedback
     assert_equal 1, round.number_correct
     assert_equal card_2, round.current_card
+    
   end
 end
 
