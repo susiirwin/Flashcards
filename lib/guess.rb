@@ -1,9 +1,9 @@
-require_relative 'cards'
 class Guess
   attr_reader :response, :card, :feedback
+
   def initialize(response, card)
     @response = response
-    @card = card
+    @card     = card
   end
 
   def correct?

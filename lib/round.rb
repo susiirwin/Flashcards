@@ -1,11 +1,11 @@
-require "pry"
 class Round
   attr_reader :deck, :guesses, :guess, :round_count, :round_guesses
+  
   def initialize(deck)
-    @deck = deck
-    @guess = []
-    @guesses = []
-    @round_count = 0
+    @deck           = deck
+    @guess          = []
+    @guesses        = []
+    @round_count    = 0
     @number_correct = number_correct
   end
 
@@ -36,13 +36,12 @@ class Round
     until round_count == deck.count
       puts "This card number #{@round_count + 1} out of #{deck.count}."
       puts "Question: #{current_card.question}"
-      guess = gets.chomp
-      record_guess(guess, current_card)
+      answer = gets.chomp
+      record_guess(answer, current_card)
       puts @guesses[round_count - 1].feedback
     end
 
     puts "****** Game over! ******"
     puts "You had #{number_correct} out of #{deck.count} for a score of #{percent_correct.to_i}%"
   end
-
 end
